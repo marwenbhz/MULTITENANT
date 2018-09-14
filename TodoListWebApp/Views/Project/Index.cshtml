@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DOMAIN.Entities.Project>
+
+@{
+    ViewBag.Title = "All Projects";
+}
+
+<h2>All Projects</h2>
+
+<p>
+    @Html.ActionLink("Create New Project", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.company.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.banque.BanqueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Goals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeadLine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstimatedTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.company.CompanyName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.banque.BanqueName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Goals)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeadLine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstimatedTime)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Get All Tasks", "GetAllTasks", new { id = item.ProjectID }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectID })
+        </td>
+    </tr>
+}
+
+</table>

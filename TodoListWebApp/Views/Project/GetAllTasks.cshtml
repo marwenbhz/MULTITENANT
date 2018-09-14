@@ -1,0 +1,97 @@
+﻿@model IEnumerable<DOMAIN.Entities.Task>
+@{
+    ViewBag.Title = "Get All Tasks By This Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get All Tasks By This Project</h2>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.TaskName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.project.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamLeader.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeamLeader.UPN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Goals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeadLine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstimatedTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Complexity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.project.ProjectName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamLeader.FullName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamLeader.UPN)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Goals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeadLine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstimatedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Complexity)
+            </td>
+
+        </tr>
+    }
+
+</table>
